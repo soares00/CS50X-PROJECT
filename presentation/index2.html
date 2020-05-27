@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>YoutubeAutoAD</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1>Youtube Auto AD</h1>
+					<h2></h2>
+					<p>
+						<small>Created by <a href="https://instagram.com/rodrigosoares_12">Rodrigo Soares</a></small>
+					</p>
+					<p>
+						<small><a href="">github.com/soares00/YTautoAD</a></small>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>What is?</h2>
+					<p class="fragment">A browser extension that automates skipping ad on YouTube. This is not an ad blocker, it just automates the process of clicking on the "Skip Ad" button on YouTube.</p>
+					<p class="fragment">This is useful when you are watching a YouTube video (or a playlist), and an ad starts playing. YouTube allows you to skip the ad after 5 seconds, but if you can't be bothered to click it yourself (or you are AFK), this extension clicks that button for you.
+				</section>
+
+				<section>
+					<h2>Programmed in JavaScript</h2>
+					<pre>
+						<code class="hljs javascript">
+(function () {
+var classList = [
+'videoAdUiSkipButton', // Old close ad button
+'ytp-ad-skip-button ytp-button', // New close ad button
+'ytp-ad-overlay-close-button', // Close overlay button
+];
+                              
+var timeoutId;
+var observedSkipBtn;
+var skipBtnObserver;
+                              
+/**
+ * Loops over all the class names of buttons that we need to click to skip an
+* ad or overlay, and returns an array of those elements.
+*
+ * @param {Array<String>} classNames - an array of class names of buttons that we need to click
+ * @returns {Array<Element>} - An array of DOM elements
+*/
+function existingButtons(classNames) {
+return classNames
+.map(name => {
+return Array.from(document.getElementsByClassName(name)) || [];
+})
+.reduce(function(acc, elems) {
+return acc.concat(elems);
+}, [])
+}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>integrated with browsers</h2>
+				</section>
+
+
+
+				<section>
+					<h1>The end</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

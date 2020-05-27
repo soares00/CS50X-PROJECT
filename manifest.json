@@ -1,0 +1,20 @@
+{
+  "name":"Youtube Auto AD",
+  "short_name": "YTautoAd",
+  "description":"YouTube Ad Skipper is an extension that auto skips ads after YouTube provides a skip ad button. It does not block an ad.",
+  "manifest_version": 2,
+  "version":"0.5.0",
+  "author":"Rodrigo Soares",
+  "homepage_url": "https://github.com/soares00/edX-HarvardX-CS50x",
+  "content_scripts":[
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js":["skipad.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "128": "logo.png"
+  }
+}
